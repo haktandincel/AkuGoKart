@@ -269,9 +269,6 @@ namespace KartGame.KartSystems
                 
          
                     NitroVFX = Instantiate(NitroBoostVFX,nitroSpawnpoint);
-                    // NitroVFX.transform.localPosition = new Vector3(0.0500000007f,-0.00999999978f,-0.0399999991f);
-                    // NitroVFX.transform.localRotation = Quaternion.Euler(7.422f, 134.834f, 7.319f);
-                    // NitroVFX.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
                     NitroVFX.GetComponent<ParticleSystem>().Play();
                     m_HasNitroVFX = true;               
             }
@@ -502,7 +499,7 @@ namespace KartGame.KartSystems
             {
                 m_NitroElapsedTime += Time.fixedDeltaTime;
 
-                if (m_NitroElapsedTime >= NitroDuration)
+                if (nitroBar.GetComponent<MyHorizontalProgressBar>().GetProgress() <= 0.0f)
                 {
                     IsNitroActive = false;
                     m_NitroCooldownElapsedTime = 0.0f;
@@ -576,10 +573,12 @@ namespace KartGame.KartSystems
         {
             if (other.CompareTag("NOS") && !other.gameObject.GetComponent<Nitro1Time>().isCollected)
             {               
-                nitroUIValue = 0.5f;
+                if (nitroUIValue < 1.0f)
+                {
+                    nitroUIValue += 0.5f;
+                }
                 nitroUI.SetProgress(nitroUIValue); 
-                other.gameObject.GetComponent<Nitro1Time>().isCollected = true;                      
-                Debug.Log("NOS Activated!"); 
+                other.gameObject.GetComponent<Nitro1Time>().isCollected = true;                                     
                 Destroy(other.gameObject);
             }
 
@@ -817,10 +816,6 @@ namespace KartGame.KartSystems
             Destroy(vfxObject);
         }
         
-    }
-
-    internal class HorizontalProgressBar
-    {
-    }
+    }  
 }
 
