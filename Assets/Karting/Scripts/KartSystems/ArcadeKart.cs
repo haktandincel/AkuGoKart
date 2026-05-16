@@ -10,6 +10,27 @@ namespace KartGame.KartSystems
 {
     public class ArcadeKart : MonoBehaviour
     {
+        // ============================================================================
+        // CONSTANTS - Sihirli Sayılar
+        // ============================================================================
+        private const float SPIN_SPEED_DEG_PER_SEC = 720f;
+        private const float NITRO_DRAIN_SPEED = 0.2f;
+        private const float SUSPENSION_COMPRESSION_VISUAL = 0.4f;
+        private const float INPUT_NULL_THRESHOLD = 0.01f;
+        private const float SPEED_NULL_THRESHOLD = 0.01f;
+        private const float RAYCST_DISTANCE = 3.0f;
+        private const float GROUND_RAYCAST_LAYERS = 1 << 9 | 1 << 10 | 1 << 11; // Ground(9) / Environment(10) / Track(11)
+        private const float AIRBORNE_REORIENTATION_MULTIPLIER = 10.0f;
+        private const float VELOCITY_STEERING_COEFFICIENT = 25f;
+        private const float ANGULAR_VELOCITY_STEERING = 0.4f;
+        private const float ANGULAR_VELOCITY_SMOOTH_SPEED = 20f;
+        private const float AIRBORNE_ANGULAR_VELOCITY_DAMPEN = 0.98f;
+        private const float DRIFT_GROUNDED_THRESHOLD = 0.1f;
+        private const float HALF_GROUNDED_THRESHOLD = 0.7f;
+
+        // ============================================================================
+        // INNER CLASSES
+        // ============================================================================
         [System.Serializable]
         public class StatPowerup
         {
@@ -19,14 +40,31 @@ namespace KartGame.KartSystems
             public float MaxTime;
         }
 
+        // ============================================================================
+        // UI & NITRO SYSTEM
+        // ============================================================================
         private MyHorizontalProgressBar nitroUI;
         private float nitroUIValue = 0f;
-        private float nitroDrainSpeed = 0.2f; // saniyede ne kadar düşecek
+        private float nitroDrainSpeed = NITRO_DRAIN_SPEED;
 
         public TextMeshProUGUI player1WinText;
         public TextMeshProUGUI player2WinText;
         
-        
+        // ============================================================================
+        // BANANA PEEL SYSTEM
+        // ============================================================================
+        [Header("Banana Peel Settings")]
+        [Tooltip("Fırlatılacak muz kabuğu prefab'ı (Rigidbody ve Collider içermeli).")]
+        public GameObject bananaPrefab;
+        [Tooltip("Muzun kartın neresinden çıkacağı.")]
+        public Transform bananaSpawnPoint;
+
+        // ============================================================================
+        // SPIN SYSTEM (Muz Cezası)
+        // ============================================================================
+        public bool IsSpinning { get; private set; } = false;
+        private float m_SpinElapsedTime = 0.0f;
+        private float m_SpinDuration = 0.0f;
 
         [System.Serializable]
         public struct Stats
@@ -192,6 +230,25 @@ namespace KartGame.KartSystems
         [Range(-1.0f, 1.0f)]
         public float WheelsPositionVerticalOffset = 0.0f;
 
+        [Header("Spring Jump Settings")]
+        [Tooltip("Zıplama kuvveti. Ne kadar yüksek olursa kart o kadar yukarı zıplar.")]
+        public float jumpForce = 8f;
+
+        [Header("Charge Jump Settings")]
+        [Tooltip("Minimum (hiç şarj etmeden) zıplama kuvveti.")]
+        public float minJumpForce = 0f;
+        [Tooltip("Maksimum (tam şarjlı) zıplama kuvveti.")]
+        public float maxJumpForce = 20f;
+        [Tooltip("Şarjın maksimum seviyeye ulaşma hızı (Saniye).")]
+        public float chargeSpeed = 2.5f;
+
+        // Şarj durumunu takip eden dahili değişkenler
+        private float m_CurrentJumpCharge = 0f;
+        private bool m_IsChargingJump = false;
+        
+        // Zıplama girdisini takip etmek için
+        private bool m_LastJumpInput = false;
+
         [Header("Physical Wheels")]
         [Tooltip("The physical representations of the Kart's wheels.")]
         public WheelCollider FrontLeftWheel;
@@ -225,8 +282,10 @@ namespace KartGame.KartSystems
         bool m_HasNitroVFX = false;
         bool m_IsDestroyingNitroVFX = false;
 
-        public Transform nitroSpawnpoint;
+        // Banana Peel params
+        bool m_LastBananaPeelInput = false;
 
+        public Transform nitroSpawnpoint;
 
         // can the kart move?
         bool m_CanMove = true;
@@ -456,22 +515,80 @@ namespace KartGame.KartSystems
 
         void GatherInputs()
         {
-            // reset input
+            // Reset giriş verisi
             Input = new InputData();
             WantsToDrift = false;
 
-            // gather nonzero input from our sources
+            // Tüm giriş kaynağından input topla
             for (int i = 0; i < m_Inputs.Length; i++)
             {
                 Input = m_Inputs[i].GenerateInput();
                 WantsToDrift = Input.Brake && Vector3.Dot(Rigidbody.linearVelocity, transform.forward) > 0.0f;
 
-                // Handle nitro activation
-                if (Input.Nitro)
-                {
-                    ActivateNitro();
-                }
+                // Giriş işlemleri
+                HandleNitroInput();
+                HandleBananaPeelInput();
+                HandleJumpInput();
             }
+        }
+
+        /// <summary>
+        /// Nitro girdisini işler
+        /// </summary>
+        private void HandleNitroInput()
+        {
+            if (Input.Nitro)
+            {
+                ActivateNitro();
+            }
+        }
+
+        /// <summary>
+        /// Muz kabuğu girdisini işler (geçiş tabanlı - sadece tuşa basılışta)
+        /// </summary>
+        private void HandleBananaPeelInput()
+        {
+            if (Input.BananaPeel && !m_LastBananaPeelInput)
+            {
+                DropBananaPeel();
+            }
+            m_LastBananaPeelInput = Input.BananaPeel;
+        }
+
+        /// <summary>
+        /// Zıplama girdisini işler (şarj tabanlı)
+        /// Adımlar:
+        /// 1. Tuşa ilk basılışında şarjlamayı başlat
+        /// 2. Tuşa basılı tutulduğu sürece şarjı doldur
+        /// 3. Tuş bırakıldığında zıplamayı tetikle
+        /// </summary>
+        private void HandleJumpInput()
+        {
+            // 1. Tuşa ilk basılma: Şarjlamaya başla
+            if (Input.Jump && !m_LastJumpInput)
+            {
+                m_IsChargingJump = true;
+                m_CurrentJumpCharge = 0f;
+            }
+
+            // 2. Tuşa basılı tutulduğu sürece: Şarjı doldur
+            if (Input.Jump && m_IsChargingJump)
+            {
+                m_CurrentJumpCharge += Time.deltaTime * (1f / chargeSpeed);
+                m_CurrentJumpCharge = Mathf.Clamp01(m_CurrentJumpCharge);
+
+                // Görsel Detay: Şarj olurken kartı basık görünmesini sağla
+                WheelsPositionVerticalOffset = Mathf.Lerp(0f, SUSPENSION_COMPRESSION_VISUAL, m_CurrentJumpCharge);
+            }
+
+            // 3. Tuş bırakıldığı an: Zıplamayı tetikle
+            if (!Input.Jump && m_LastJumpInput && m_IsChargingJump)
+            {
+                ExecuteChargeJump();
+            }
+
+            // Sonraki frame'de geçişi detect etmek için kaydet
+            m_LastJumpInput = Input.Jump;
         }
 
         void TickPowerups()
@@ -571,6 +688,14 @@ namespace KartGame.KartSystems
         }
         void OnTriggerEnter(Collider other)
         {
+            if (other.CompareTag("BananaPeel"))
+            {
+                IsSpinning = true;
+                m_SpinElapsedTime = 0.0f;
+                m_SpinDuration = 1.0f; // Spin süresi (örneğin 2 saniye)
+                ApplySpinMovement();
+                Destroy(other.gameObject);
+            }
             if (other.CompareTag("NOS") && !other.gameObject.GetComponent<Nitro1Time>().isCollected)
             {               
                 if (nitroUIValue < 1.0f)
@@ -613,22 +738,28 @@ namespace KartGame.KartSystems
 
         void MoveVehicle(bool accelerate, bool brake, float turnInput)
         {
+            if (IsSpinning)
+            {
+                ApplySpinMovement();
+                return;
+            }
+
             float accelInput = (accelerate ? 1.0f : 0.0f) - (brake ? 1.0f : 0.0f);
 
-            // manual acceleration curve coefficient scalar
-            float accelerationCurveCoeff = 5;
+            // İvme eğrisi katsayısı
+            const float ACCELERATION_CURVE_COEFFICIENT = 5f;
             Vector3 localVel = transform.InverseTransformVector(Rigidbody.linearVelocity);
 
             bool accelDirectionIsFwd = accelInput >= 0;
             bool localVelDirectionIsFwd = localVel.z >= 0;
 
-            // use the max speed for the direction we are going--forward or reverse.
+            // Gidiş yönüne göre maksimum hız seçer
             float maxSpeed = localVelDirectionIsFwd ? m_FinalStats.TopSpeed : m_FinalStats.ReverseSpeed;
             float accelPower = accelDirectionIsFwd ? m_FinalStats.Acceleration : m_FinalStats.ReverseAcceleration;
 
             float currentSpeed = Rigidbody.linearVelocity.magnitude;
             float accelRampT = currentSpeed / maxSpeed;
-            float multipliedAccelerationCurve = m_FinalStats.AccelerationCurve * accelerationCurveCoeff;
+            float multipliedAccelerationCurve = m_FinalStats.AccelerationCurve * ACCELERATION_CURVE_COEFFICIENT;
             float accelRamp = Mathf.Lerp(multipliedAccelerationCurve, 1, accelRampT * accelRampT);
 
             bool isBraking = (localVelDirectionIsFwd && brake) || (!localVelDirectionIsFwd && accelerate);
@@ -670,7 +801,7 @@ namespace KartGame.KartSystems
 
             Rigidbody.linearVelocity = newVelocity;
 
-            // Drift
+            // Drift & Ground Physics
             if (GroundPercent > 0.0f)
             {
                 if (m_InAir)
@@ -679,28 +810,27 @@ namespace KartGame.KartSystems
                     Instantiate(JumpVFX, transform.position, Quaternion.identity);
                 }
 
-                // manual angular velocity coefficient
-                float angularVelocitySteering = 0.4f;
-                float angularVelocitySmoothSpeed = 20f;
+                // Kart dönüşü (yaw) kontrol değişkenleri
+                float angularVelocitySteering = ANGULAR_VELOCITY_STEERING;
+                float angularVelocitySmoothSpeed = ANGULAR_VELOCITY_SMOOTH_SPEED;
 
-                // turning is reversed if we're going in reverse and pressing reverse
+                // Geri giderken vs ileriye giderken dönüş ters çevrilir
                 if (!localVelDirectionIsFwd && !accelDirectionIsFwd) 
                     angularVelocitySteering *= -1.0f;
 
                 var angularVel = Rigidbody.angularVelocity;
 
-                // move the Y angular velocity towards our target
+                // Y ekseni açısal hızını hedef yöne doğru hareket ettir
                 angularVel.y = Mathf.MoveTowards(angularVel.y, turningPower * angularVelocitySteering, Time.fixedDeltaTime * angularVelocitySmoothSpeed);
 
-                // apply the angular velocity
+                // Açısal hızı uygula
                 Rigidbody.angularVelocity = angularVel;
 
-                // rotate rigidbody's velocity as well to generate immediate velocity redirection
-                // manual velocity steering coefficient
-                float velocitySteering = 25f;
+                // Hız vektörünü de döndür - hızlı yön değişikliği sağla
+                float velocitySteering = VELOCITY_STEERING_COEFFICIENT;
 
-                // If the karts lands with a forward not in the velocity direction, we start the drift
-                if (GroundPercent >= 0.0f && m_PreviousGroundPercent < 0.1f)
+                // Kart yere indiğinde drift başlat (eğer yönü hızından farklıysa)
+                if (GroundPercent >= 0.0f && m_PreviousGroundPercent < DRIFT_GROUNDED_THRESHOLD)
                 {
                     Vector3 flattenVelocity = Vector3.ProjectOnPlane(Rigidbody.linearVelocity, m_VerticalReference).normalized;
                     if (Vector3.Dot(flattenVelocity, transform.forward * Mathf.Sign(accelInput)) < Mathf.Cos(MinAngleToFinishDrift * Mathf.Deg2Rad))
@@ -753,7 +883,7 @@ namespace KartGame.KartSystems
 
                 }
 
-                // rotate our velocity based on current steer value
+                // Hız vektörünü döndürüp steer değerine göre rotasyon yap
                 Rigidbody.linearVelocity = Quaternion.AngleAxis(turningPower * Mathf.Sign(localVel.z) * velocitySteering * m_CurrentGrip * Time.fixedDeltaTime, transform.up) * Rigidbody.linearVelocity;
             }
             else
@@ -761,11 +891,16 @@ namespace KartGame.KartSystems
                 m_InAir = true;
             }
 
+            // Yerden yüksekliği kontrol etmek için raycast
             bool validPosition = false;
-            if (Physics.Raycast(transform.position + (transform.up * 0.1f), -transform.up, out RaycastHit hit, 3.0f, 1 << 9 | 1 << 10 | 1 << 11)) // Layer: ground (9) / Environment(10) / Track (11)
+            const float RAYCAST_VERTICAL_OFFSET = 0.1f;
+            const int RAYCAST_LAYER_MASK = (1 << 9) | (1 << 10) | (1 << 11); // Ground(9) / Environment(10) / Track(11)
+            
+            if (Physics.Raycast(transform.position + (transform.up * RAYCAST_VERTICAL_OFFSET), -transform.up, out RaycastHit hit, RAYCST_DISTANCE, RAYCAST_LAYER_MASK))
             {
                 Vector3 lerpVector = (m_HasCollision && m_LastCollisionNormal.y > hit.normal.y) ? m_LastCollisionNormal : hit.normal;
-                m_VerticalReference = Vector3.Slerp(m_VerticalReference, lerpVector, Mathf.Clamp01(AirborneReorientationCoefficient * Time.fixedDeltaTime * (GroundPercent > 0.0f ? 10.0f : 1.0f)));    // Blend faster if on ground
+                float blendSpeed = (GroundPercent > 0.0f) ? AIRBORNE_REORIENTATION_MULTIPLIER : 1.0f;
+                m_VerticalReference = Vector3.Slerp(m_VerticalReference, lerpVector, Mathf.Clamp01(AirborneReorientationCoefficient * Time.fixedDeltaTime * blendSpeed));
             }
             else
             {
@@ -773,12 +908,13 @@ namespace KartGame.KartSystems
                 m_VerticalReference = Vector3.Slerp(m_VerticalReference, lerpVector, Mathf.Clamp01(AirborneReorientationCoefficient * Time.fixedDeltaTime));
             }
 
-            validPosition = GroundPercent > 0.7f && !m_HasCollision && Vector3.Dot(m_VerticalReference, Vector3.up) > 0.9f;
+            const float ORIENTATION_DOT_THRESHOLD = 0.9f;
+            validPosition = GroundPercent > HALF_GROUNDED_THRESHOLD && !m_HasCollision && Vector3.Dot(m_VerticalReference, Vector3.up) > ORIENTATION_DOT_THRESHOLD;
 
-            // Airborne / Half on ground management
-            if (GroundPercent < 0.7f)
+            // Havada veya yarı yerde management
+            if (GroundPercent < HALF_GROUNDED_THRESHOLD)
             {
-                Rigidbody.angularVelocity = new Vector3(0.0f, Rigidbody.angularVelocity.y * 0.98f, 0.0f);
+                Rigidbody.angularVelocity = new Vector3(0.0f, Rigidbody.angularVelocity.y * AIRBORNE_ANGULAR_VELOCITY_DAMPEN, 0.0f);
                 Vector3 finalOrientationDirection = Vector3.ProjectOnPlane(transform.forward, m_VerticalReference);
                 finalOrientationDirection.Normalize();
                 if (finalOrientationDirection.sqrMagnitude > 0.0f)
@@ -815,7 +951,94 @@ namespace KartGame.KartSystems
             m_IsDestroyingNitroVFX = false;
             Destroy(vfxObject);
         }
-        
+        /// <summary>
+        /// Kartın arkasından havaya doğru muz kabuğu fırlatır.
+        /// </summary>
+        public void DropBananaPeel()
+        {
+            if (bananaPrefab != null && bananaSpawnPoint != null)
+            {
+                // Spawn point'in 1 metre arkasındaki pozisyonu hesapla (-transform.forward)
+                Vector3 spawnPosition = bananaSpawnPoint.position - (transform.forward * 1.0f);
+                
+                // Muzu anında o pozisyonda ve kartın o anki rotasyonuna paralel olarak doğur
+                GameObject bananaInstance = Instantiate(bananaPrefab, spawnPosition, transform.rotation);
+                
+                // Eğer sahnede ölçeklenme sorunu oluyorsa boyutunu eşitle (isteğe bağlı)
+                bananaInstance.transform.localScale = Vector3.one * 1f;
+            }
+        }
+
+        /// <summary>
+        /// Muza basıldığında çağrılan spin başlatıcı.
+        /// </summary>
+        public void SpinOut(float duration)
+        {
+            if (IsSpinning) return; 
+
+            IsSpinning = true;
+            m_SpinDuration = duration;
+            m_SpinElapsedTime = 0.0f;
+
+            // Cezalandırma: Nitro ve drift iptal
+            IsNitroActive = false; 
+            IsDrifting = false;
+            ActivateDriftVFX(false);
+        }
+
+        /// <summary>
+        /// Muza basan kartın yavaşlayıp fırfır dönmesini sağlar.
+        /// </summary>
+        private void ApplySpinMovement()
+        {
+            m_SpinElapsedTime += Time.fixedDeltaTime;
+
+            if (m_SpinElapsedTime >= m_SpinDuration)
+            {
+                IsSpinning = false;
+                return;
+            }
+
+            // Kartı kademeli olarak durdur (Sürtünmeyi artırdık)
+            Vector3 newVelocity = Vector3.MoveTowards(Rigidbody.linearVelocity, new Vector3(0, Rigidbody.linearVelocity.y, 0), Time.fixedDeltaTime * m_FinalStats.CoastingDrag * 2.0f);
+            Rigidbody.linearVelocity = newVelocity;
+
+            // Kendi etrafında tatlı bir Mario Kart spini (360 derece)
+            float rotationThisFrame = SPIN_SPEED_DEG_PER_SEC * Time.fixedDeltaTime;
+            Quaternion deltaRotation = Quaternion.Euler(0f, rotationThisFrame, 0f);
+            Rigidbody.MoveRotation(Rigidbody.rotation * deltaRotation);
+        }
+        /// <summary>
+        /// Kart eğer yerdeyse dikey eksende yukarı doğru zıplamasını sağlar.
+        /// </summary>
+        /// <summary>
+        /// Biriken şarj miktarına göre kartı yukarı doğru fırlatır.
+        /// </summary>
+        private void ExecuteChargeJump()
+        {
+            m_IsChargingJump = false;
+
+            // Kart hala yerdeyse zıpla (Şarj ederken havaya uçtuysa zıplamasın)
+            if (GroundPercent > 0.1f && !IsSpinning && m_CanMove)
+            {
+                // Min ve Max kuvvetler arasında şarj yüzdesine göre nihai kuvveti hesapla
+                float finalJumpForce = Mathf.Lerp(minJumpForce, maxJumpForce, m_CurrentJumpCharge);
+
+                // Dikey hızı sıfırla ki stabil fırlasın
+                Vector3 currentVel = Rigidbody.linearVelocity;
+                currentVel.y = 0f;
+                Rigidbody.linearVelocity = currentVel;
+
+                // Yukarı doğru fırlat
+                Rigidbody.AddForce(Vector3.up * finalJumpForce, ForceMode.Impulse);
+                Rigidbody.angularVelocity = new Vector3(0f, Rigidbody.angularVelocity.y, 0f);
+            }
+
+            // Süspansiyon görselini eski haline (normal yüksekliğe) sıfırla
+            WheelsPositionVerticalOffset = 0f;
+            m_CurrentJumpCharge = 0f;
+        }
     }  
+    
 }
 

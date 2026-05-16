@@ -8,6 +8,8 @@ namespace KartGame.KartSystems
         public bool Brake;
         public float TurnInput;
         public bool Nitro;
+        public bool BananaPeel;
+        public bool Jump;
     }
 
     public interface IInput

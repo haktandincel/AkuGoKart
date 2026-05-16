@@ -7,6 +7,7 @@ TagManager:
   - CrashMode
   - NitroVFX
   - NOS
+  - BananaPeel
   layers:
   - Default
   - TransparentFX

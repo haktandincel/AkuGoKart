@@ -25,6 +25,10 @@ namespace KartGame.KartSystems
         [Tooltip("Key for nitro boost (default: Space)")]
         public KeyCode NitroKey = KeyCode.LeftShift;
 
+        public KeyCode BananaPeelKey = KeyCode.E;
+
+        public KeyCode JumpKey = KeyCode.LeftControl;
+
         public override InputData GenerateInput()
         {
             float turnInput = 0f;
@@ -40,7 +44,9 @@ namespace KartGame.KartSystems
                 Accelerate = Input.GetKey(AccelerateKey),
                 Brake = Input.GetKey(BrakeKey),
                 TurnInput = turnInput,
-                Nitro = Input.GetKey(NitroKey)
+                Nitro = Input.GetKey(NitroKey),
+                BananaPeel = Input.GetKey(BananaPeelKey),
+                Jump = Input.GetKey(JumpKey)
             };
         }
     }
