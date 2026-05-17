@@ -6,6 +6,8 @@ using Cinemachine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+
 namespace KartGame.KartSystems
 {
     public class ArcadeKart : MonoBehaviour
@@ -712,11 +714,15 @@ namespace KartGame.KartSystems
                 if (this.gameObject.name == "Player1")
                 {
                     player1WinText.gameObject.SetActive(true);
+                    GameManager.Instance.isplayer1Won = true;
                 }
                 else if (this.gameObject.name == "Player2")
                 {
                     player2WinText.gameObject.SetActive(true);
+                    GameManager.Instance.isplayer1Won = false;
                 }
+
+                SceneManager.LoadScene("GirisScene");
             }
         }
 
