@@ -282,6 +282,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12429118}
   m_CullTransparentMesh: 1
+--- !u!1 &23026106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 23026107}
+  m_Layer: 0
+  m_Name: CheckPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &23026107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23026106}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 494.07, y: 1.49391, z: -292.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1718180114}
+  - {fileID: 754398698}
+  - {fileID: 1002994419}
+  - {fileID: 507447279}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &28154979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4980462379348410893, guid: bfe27f8cafcf4ee48b93d84baa8389f3,
@@ -306,6 +341,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (133)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -374,6 +414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (110)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -448,6 +493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -693,6 +743,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -766,7 +821,7 @@ GameObject:
   - component: {fileID: 87675103}
   - component: {fileID: 87675102}
   m_Layer: 5
-  m_Name: E
+  m_Name: Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -811,7 +866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1350719223, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
+  m_Sprite: {fileID: 903176140, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -936,6 +991,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (96)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1009,6 +1069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -1334,6 +1399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -1433,6 +1503,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackBank
       objectReference: {fileID: 0}
+    - target: {fileID: 8135817075816661729, guid: 40edbcc1d6247412ea82349e34d5add5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1506,6 +1581,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: kopya (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
@@ -1582,6 +1662,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -1611,6 +1696,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -1680,6 +1770,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (102)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1747,6 +1842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -1822,6 +1922,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (135)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1895,6 +2000,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -2180,6 +2290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (99)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2253,6 +2368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -2845,6 +2965,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2912,6 +3037,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (105)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -2998,6 +3128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (91)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -3428,6 +3563,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3495,6 +3635,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (113)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -3576,6 +3721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3643,6 +3793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -3848,6 +4003,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4009,6 +4169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4077,6 +4242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (128)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4144,6 +4314,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -4231,6 +4406,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (125)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4317,6 +4497,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -4402,6 +4587,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (129)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4475,6 +4665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (127)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -4550,6 +4745,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4617,6 +4817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -5109,6 +5314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackRamp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5278,6 +5488,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (112)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5351,6 +5566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (123)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -5426,6 +5646,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (121)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5499,6 +5724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (92)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5560,6 +5790,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 870194586}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &507447278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 507447279}
+  - component: {fileID: 507447280}
+  m_Layer: 0
+  m_Name: Checkpoint4
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &507447279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507447278}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7601318, y: 0.75609004, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 23026107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &507447280
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507447278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.194519, y: 1.2401772, z: 1}
+  m_Center: {x: -0.881958, y: 0.6195743, z: 0}
 --- !u!4 &507591640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2040786457589841454, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
@@ -5578,6 +5861,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (122)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -5653,6 +5941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5720,6 +6013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackSpiralRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7609577426192536233, guid: 291ac874e44fb46a1a05a1815cfc4f52,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 7609577426192830089, guid: 291ac874e44fb46a1a05a1815cfc4f52,
         type: 3}
@@ -5800,6 +6098,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -6006,6 +6309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6073,6 +6381,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -6161,7 +6474,7 @@ GameObject:
   - component: {fileID: 584584493}
   m_Layer: 0
   m_Name: Zemin
-  m_TagString: Untagged
+  m_TagString: Zemin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6369,6 +6682,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -6438,6 +6756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (130)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -6569,6 +6892,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -6690,6 +7018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6775,6 +7108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -6980,6 +7318,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -7230,6 +7573,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (98)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7348,6 +7696,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -7384,6 +7737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -7465,6 +7823,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (109)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7520,6 +7883,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 941fac9249b6442cdb2d3f23472128e2, type: 3}
+--- !u!1 &754398697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754398698}
+  - component: {fileID: 754398699}
+  m_Layer: 0
+  m_Name: Checkpoint2
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754398698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754398697}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -37.64, y: 0.75609004, z: 107.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 23026107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &754398699
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754398697}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.194519, y: 1.2401772, z: 1}
+  m_Center: {x: -0.881958, y: 0.6195743, z: 0}
 --- !u!1001 &760198896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7532,6 +7948,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (131)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -7600,6 +8021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (103)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -7756,12 +8182,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 451992519}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &797179233 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7798798854738640063, guid: 19954de30401f73428254541a9ad156e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1935605112}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &799194103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7774,6 +8194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (118)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -8360,6 +8785,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8434,6 +8864,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (114)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8501,6 +8936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -8576,6 +9016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (126)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8643,6 +9088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (94)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -8800,6 +9250,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (137)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8918,6 +9373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -9096,6 +9556,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9163,6 +9628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (86)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -9238,6 +9708,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9293,37 +9768,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 941fac9249b6442cdb2d3f23472128e2, type: 3}
---- !u!1 &905369961
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 905369962}
-  m_Layer: 2
-  m_Name: nitrovfx
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &905369962
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905369961}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 797179233}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &908719294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9336,6 +9780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (136)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -9455,6 +9904,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -9490,6 +9944,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (138)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -9688,6 +10147,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackRamp
       objectReference: {fileID: 0}
+    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9705,6 +10169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -10133,6 +10602,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10474,6 +10948,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998231126}
   m_CullTransparentMesh: 1
+--- !u!1 &1002994418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1002994419}
+  - component: {fileID: 1002994420}
+  m_Layer: 0
+  m_Name: Checkpoint3
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1002994419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002994418}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -37.64, y: 0.75609004, z: 198.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 23026107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1002994420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002994418}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.194519, y: 1.2401772, z: 1}
+  m_Center: {x: -0.881958, y: 0.6195743, z: 0}
 --- !u!1001 &1007926234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10575,6 +11102,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (106)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10642,6 +11174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -10716,6 +11253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -10802,6 +11344,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -10970,6 +11517,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11062,6 +11614,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11130,6 +11687,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11197,6 +11759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -11368,6 +11935,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11436,6 +12008,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11503,6 +12080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -11616,7 +12198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2120801154, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
+  m_Sprite: {fileID: 1856912378, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11646,6 +12228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (108)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -11764,6 +12351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: kopya (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
@@ -11924,6 +12516,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (134)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -12086,6 +12683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (76)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -12276,6 +12878,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12343,6 +12950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -12553,7 +13165,7 @@ GameObject:
   - component: {fileID: 1315854115}
   m_Layer: 0
   m_Name: Roads
-  m_TagString: Untagged
+  m_TagString: Yol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12734,6 +13346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (115)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12820,6 +13437,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12887,6 +13509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -12961,6 +13588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -13110,6 +13742,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -13353,6 +13990,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -13377,6 +14019,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (119)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -13544,6 +14191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13693,6 +14345,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13789,12 +14446,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6121590469811200223, guid: a860befd6970bd94c9cb614b99159edb, type: 3}
---- !u!4 &1437246902 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7798798854738640063, guid: 19954de30401f73428254541a9ad156e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1873432119}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1446754426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13907,6 +14558,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13981,6 +14637,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14048,6 +14709,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (100)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -14129,6 +14795,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (90)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14197,6 +14868,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14264,6 +14940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (140)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -14345,6 +15026,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14418,6 +15104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -14568,6 +15259,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (124)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -14715,6 +15411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14795,6 +15496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14869,6 +15575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14924,12 +15635,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 941fac9249b6442cdb2d3f23472128e2, type: 3}
---- !u!1 &1589134251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4810912518991602691, guid: 19954de30401f73428254541a9ad156e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1935605112}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1594799639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14942,6 +15647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (107)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -15098,6 +15808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -15291,6 +16006,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -15515,6 +16235,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (139)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15583,6 +16308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15650,6 +16380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -15831,6 +16566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -16044,6 +16784,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -16119,6 +16864,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kopya (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
       propertyPath: m_Mesh
@@ -16136,6 +16886,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7, type: 3}
+--- !u!1 &1718180113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1718180114}
+  - component: {fileID: 1718180115}
+  m_Layer: 0
+  m_Name: Checkpoint1
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1718180114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718180113}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7601318, y: 0.75609004, z: -63.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 23026107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1718180115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718180113}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.194519, y: 1.2401772, z: 1}
+  m_Center: {x: -0.881958, y: 0.6195743, z: 0}
 --- !u!4 &1721024132 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
@@ -16204,6 +17007,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: kopya (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040786457590129166, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 2040786457596415150, guid: b4f04a63d8d1b7040ab5a5e4585ee0b7,
         type: 3}
@@ -16541,6 +17349,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackRamp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16634,6 +17447,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16701,6 +17519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (93)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -16782,6 +17605,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16849,6 +17677,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -17067,6 +17900,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17134,6 +17972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -17209,6 +18052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17277,6 +18125,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (120)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17344,6 +18197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -17603,6 +18461,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -17875,11 +18738,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 403965902444250509, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4810912518991602691, guid: 19954de30401f73428254541a9ad156e,
         type: 3}
       propertyPath: m_Name
@@ -17947,23 +18805,6 @@ PrefabInstance:
       objectReference: {fileID: 1836684644}
     - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
         type: 3}
-      propertyPath: existingVFX
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: bananaPrefab
-      value: 
-      objectReference: {fileID: 8038603002578127139, guid: 8bf93d2a7b647d54fab4b0708ae1e166,
-        type: 3}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: NitroBoostVFX
-      value: 
-      objectReference: {fileID: 2591815661486601738, guid: 87d3d9075eeb53c4ab09406d7337afdd,
-        type: 3}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
       propertyPath: player1WinText
       value: 
       objectReference: {fileID: 65601168}
@@ -17972,28 +18813,16 @@ PrefabInstance:
       propertyPath: player2WinText
       value: 
       objectReference: {fileID: 820085463}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
+    - target: {fileID: 7798798856373682650, guid: 19954de30401f73428254541a9ad156e,
         type: 3}
-      propertyPath: nitroSpawnpoint
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 1980657320}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: bananaSpawnPoint
-      value: 
-      objectReference: {fileID: 1980657320}
-    m_RemovedComponents: []
+      objectReference: {fileID: 2100000, guid: fe63c41331f6dbb43b503a783610eea9, type: 2}
+    m_RemovedComponents:
+    - {fileID: 8319696889455795395, guid: 19954de30401f73428254541a9ad156e, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7798798854738640063, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1980657320}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4810912518991602691, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2113716801}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19954de30401f73428254541a9ad156e, type: 3}
 --- !u!1 &1873506927
 GameObject:
@@ -18121,6 +18950,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18188,6 +19022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (111)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -18262,6 +19101,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -18342,6 +19186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (97)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -18428,6 +19277,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 4810912518991602691, guid: 19954de30401f73428254541a9ad156e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4810912518991602692, guid: 19954de30401f73428254541a9ad156e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18490,28 +19344,6 @@ PrefabInstance:
       objectReference: {fileID: 2119931551}
     - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: existingVFX
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: bananaPrefab
-      value: 
-      objectReference: {fileID: 8038603002578127139, guid: 8bf93d2a7b647d54fab4b0708ae1e166,
-        type: 3}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: NitroBoostVFX
-      value: 
-      objectReference: {fileID: 2591815661486601738, guid: 87d3d9075eeb53c4ab09406d7337afdd,
-        type: 3}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
       propertyPath: player1WinText
       value: 
       objectReference: {fileID: 65601168}
@@ -18520,38 +19352,16 @@ PrefabInstance:
       propertyPath: player2WinText
       value: 
       objectReference: {fileID: 820085463}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: nitroSpawnpoint
-      value: 
-      objectReference: {fileID: 905369962}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: bananaSpawnPoint
-      value: 
-      objectReference: {fileID: 905369962}
-    - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      propertyPath: bananaSpawnpoint
-      value: 
-      objectReference: {fileID: 905369962}
     - target: {fileID: 7798798856373682650, guid: 19954de30401f73428254541a9ad156e,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c794895b4346d4b7bb39188becd35c0e, type: 2}
-    m_RemovedComponents: []
+      objectReference: {fileID: 2100000, guid: 44181058c16ff0e4f971e7bfb2a9b233, type: 2}
+    m_RemovedComponents:
+    - {fileID: 4639858884329634043, guid: 19954de30401f73428254541a9ad156e, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7798798854738640063, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 905369962}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4810912518991602691, guid: 19954de30401f73428254541a9ad156e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2104073768}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19954de30401f73428254541a9ad156e, type: 3}
 --- !u!4 &1947116579 stripped
 Transform:
@@ -18657,37 +19467,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1121435922}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1980657319
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1980657320}
-  m_Layer: 2
-  m_Name: nitrovfx
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1980657320
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980657319}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1437246902}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1984310955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18700,6 +19479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -18948,6 +19732,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19158,6 +19947,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (117)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -19548,6 +20342,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -19626,6 +20425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (132)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -19742,6 +20546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (87)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -19871,6 +20680,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackRamp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20053,6 +20867,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20114,25 +20933,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1935605112}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2104073768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589134251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9edfd1f1463ccee44a5b871f649dccc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: KartGame::KartGame.KartSystems.AlternateKeyboardInput
-  AccelerateKey: 119
-  BrakeKey: 115
-  LeftTurnKey: 97
-  RightTurnKey: 100
-  NitroKey: 304
-  BananaPeelKey: 101
-  JumpKey: 306
 --- !u!4 &2104613351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
@@ -20151,6 +20951,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModularTrackStraight (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
       objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
@@ -20207,31 +21012,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 941fac9249b6442cdb2d3f23472128e2, type: 3}
---- !u!1 &2113716796 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4810912518991602691, guid: 19954de30401f73428254541a9ad156e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1873432119}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2113716801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113716796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9edfd1f1463ccee44a5b871f649dccc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: KartGame::KartGame.KartSystems.AlternateKeyboardInput
-  AccelerateKey: 273
-  BrakeKey: 274
-  LeftTurnKey: 276
-  RightTurnKey: 275
-  NitroKey: 256
-  BananaPeelKey: 305
-  JumpKey: 32
 --- !u!1001 &2117739511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20554,6 +21334,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (104)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -20726,6 +21511,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularTrackStraight (95)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579282987822437358, guid: 941fac9249b6442cdb2d3f23472128e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Yol
+      objectReference: {fileID: 0}
     - target: {fileID: 1579282987822796750, guid: 941fac9249b6442cdb2d3f23472128e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20793,7 +21583,7 @@ GameObject:
   - component: {fileID: 2147272356}
   - component: {fileID: 2147272355}
   m_Layer: 5
-  m_Name: Ctrl
+  m_Name: Space
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20838,7 +21628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 903176140, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
+  m_Sprite: {fileID: -1476951808, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20960,3 +21750,4 @@ SceneRoots:
   - {fileID: 711483437}
   - {fileID: 873723567}
   - {fileID: 1556139049}
+  - {fileID: 23026107}

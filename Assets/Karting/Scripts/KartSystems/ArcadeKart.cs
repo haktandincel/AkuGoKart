@@ -300,6 +300,13 @@ namespace KartGame.KartSystems
         bool m_HasCollision;
         bool m_InAir = false;
 
+        // ============================================================================
+        // CHECKPOINT SYSTEM
+        // ============================================================================
+        private Vector3 m_LastCheckpointPosition;
+        private Quaternion m_LastCheckpointRotation;
+        private bool m_HasCheckpoint = false;
+
         public void AddPowerup(StatPowerup statPowerup) => m_ActivePowerupList.Add(statPowerup);
         public void SetCanMove(bool move) => m_CanMove = move;
         public float GetMaxSpeed() => Mathf.Max(m_FinalStats.TopSpeed, m_FinalStats.ReverseSpeed);
@@ -690,6 +697,15 @@ namespace KartGame.KartSystems
         }
         void OnTriggerEnter(Collider other)
         {
+            // Checkpoint sistemi
+            if (other.CompareTag("Checkpoint"))
+            {
+                m_LastCheckpointPosition = transform.position;
+                m_LastCheckpointRotation = transform.rotation;
+                m_HasCheckpoint = true;
+                Debug.Log("Checkpoint kaydedildi!");
+            }
+            
             if (other.CompareTag("BananaPeel"))
             {
                 IsSpinning = true;
@@ -726,7 +742,30 @@ namespace KartGame.KartSystems
             }
         }
 
-        void OnCollisionEnter(Collision collision) => m_HasCollision = true;
+        void OnCollisionEnter(Collision collision)
+        {
+              m_HasCollision = true;
+              if (collision.gameObject.CompareTag("Zemin"))
+            {
+                // Eğer checkpoint kaydedilmişse ve yoldan düşmüşse checkpoint'e ışınla
+                if (m_HasCheckpoint)
+                {
+                    StartCoroutine(TeleportToCheckpoint());
+                }
+            }
+        }
+
+        IEnumerator TeleportToCheckpoint()
+        {
+            yield return new WaitForSeconds(0.5f);
+            Rigidbody.linearVelocity = Vector3.zero;
+            Rigidbody.angularVelocity = Vector3.zero;
+            transform.position = m_LastCheckpointPosition;
+            transform.rotation = m_LastCheckpointRotation;
+            
+            Debug.Log("Araba checkpoint'e geri ışınlandı!");
+        }
+
         void OnCollisionExit(Collision collision) => m_HasCollision = false;
 
         void OnCollisionStay(Collision collision)
@@ -740,6 +779,8 @@ namespace KartGame.KartSystems
                 if (Vector3.Dot(contact.normal, Vector3.up) > dot)
                     m_LastCollisionNormal = contact.normal;
             }
+
+            
         }
 
         void MoveVehicle(bool accelerate, bool brake, float turnInput)
@@ -971,7 +1012,7 @@ namespace KartGame.KartSystems
                 GameObject bananaInstance = Instantiate(bananaPrefab, spawnPosition, transform.rotation);
                 
                 // Eğer sahnede ölçeklenme sorunu oluyorsa boyutunu eşitle (isteğe bağlı)
-                bananaInstance.transform.localScale = Vector3.one * 1f;
+               // bananaInstance.transform.localScale = Vector3.one * 1f;
             }
         }
 

@@ -8,6 +8,9 @@ TagManager:
   - NitroVFX
   - NOS
   - BananaPeel
+  - Zemin
+  - Yol
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
    public static GameManager Instance { get; private set; }
    public GameObject ReadyOrNotText1;
    public GameObject ReadyOrNotText2;
+    public GameObject HintPanel;
 
 
    private void OnEnable()
@@ -42,6 +45,13 @@ public class GameManager : MonoBehaviour
                 GameObject.Find("OncekiOyunOyuncu1").GetComponent<TMPro.TMP_Text>().text = "1. " + player2Name;
                 GameObject.Find("OncekiOyunOyuncu2").GetComponent<TMPro.TMP_Text>().text = "2. " + player1Name;
             }
+
+            if (HintPanel == null)
+            {
+                HintPanel = GameObject.Find("HintPanel");
+            }
+
+            
         
         }
 
@@ -88,8 +98,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    if (Input.GetKeyDown(KeyCode.H))
+        {
+            if (HintPanel != null)
+            {
+                HintPanel.SetActive(!HintPanel.activeSelf);
+            }
+
         }
-    }
+        }}
     private void Awake()
     {
        
