@@ -98,14 +98,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
-    if (Input.GetKeyDown(KeyCode.H))
+    if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
         {
-            if (HintPanel != null)
+        if (HintPanel != null)
             {
                 HintPanel.SetActive(!HintPanel.activeSelf);
             }
-
         }
+        
         }}
     private void Awake()
     {
@@ -121,6 +121,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    
      public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
