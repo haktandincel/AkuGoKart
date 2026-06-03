@@ -182,6 +182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895846115232909977, guid: cba6236a3ca88a54081cc989c4f0c08a,
         type: 3}
+      propertyPath: chargeSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895846115232909977, guid: cba6236a3ca88a54081cc989c4f0c08a,
+        type: 3}
       propertyPath: DriftControl
       value: 16
       objectReference: {fileID: 0}
@@ -191,6 +196,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8038603002578127139, guid: 8bf93d2a7b647d54fab4b0708ae1e166,
         type: 3}
+    - target: {fileID: 4895846115232909977, guid: cba6236a3ca88a54081cc989c4f0c08a,
+        type: 3}
+      propertyPath: maxJumpForce
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895846115232909977, guid: cba6236a3ca88a54081cc989c4f0c08a,
+        type: 3}
+      propertyPath: minJumpForce
+      value: 12500
+      objectReference: {fileID: 0}
     - target: {fileID: 4895846115232909977, guid: cba6236a3ca88a54081cc989c4f0c08a,
         type: 3}
       propertyPath: NitroBoostVFX
@@ -360,12 +375,12 @@ PrefabInstance:
     - target: {fileID: 4895846115232909979, guid: cba6236a3ca88a54081cc989c4f0c08a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 496.76
+      value: 494.5
       objectReference: {fileID: 0}
     - target: {fileID: 4895846115232909979, guid: cba6236a3ca88a54081cc989c4f0c08a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.97
+      value: 5.07
       objectReference: {fileID: 0}
     - target: {fileID: 4895846115232909979, guid: cba6236a3ca88a54081cc989c4f0c08a,
         type: 3}
@@ -458,10 +473,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4895846115232909980, guid: cba6236a3ca88a54081cc989c4f0c08a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8319696889455795395}
-    - targetCorrespondingSourceObject: {fileID: 4895846115232909980, guid: cba6236a3ca88a54081cc989c4f0c08a,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4639858884329634043}
   m_SourcePrefab: {fileID: 100100000, guid: cba6236a3ca88a54081cc989c4f0c08a, type: 3}
 --- !u!1 &4810912518991602691 stripped
@@ -470,25 +481,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 86203259526999711}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8319696889455795395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4810912518991602691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9edfd1f1463ccee44a5b871f649dccc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: KartGame::KartGame.KartSystems.AlternateKeyboardInput
-  AccelerateKey: 119
-  BrakeKey: 115
-  LeftTurnKey: 97
-  RightTurnKey: 100
-  NitroKey: 304
-  BananaPeelKey: 101
-  JumpKey: 306
 --- !u!114 &4639858884329634043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,10 +1292,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400128, guid: 078f73b46517318428ecaf8e7207124c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 286
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 078f73b46517318428ecaf8e7207124c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c794895b4346d4b7bb39188becd35c0e, type: 2}
+      objectReference: {fileID: 2100000, guid: fe63c41331f6dbb43b503a783610eea9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

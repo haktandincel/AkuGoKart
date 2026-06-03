@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
+
 namespace KartGame.KartSystems
 {
     public class ArcadeKart : MonoBehaviour
@@ -17,7 +18,7 @@ namespace KartGame.KartSystems
         // ============================================================================
         private const float SPIN_SPEED_DEG_PER_SEC = 720f;
         private const float NITRO_DRAIN_SPEED = 0.2f;
-        private const float SUSPENSION_COMPRESSION_VISUAL = 0.4f;
+        private const float SUSPENSION_COMPRESSION_VISUAL = 0.1f;
         private const float INPUT_NULL_THRESHOLD = 0.01f;
         private const float SPEED_NULL_THRESHOLD = 0.01f;
         private const float RAYCST_DISTANCE = 3.0f;
@@ -240,9 +241,9 @@ namespace KartGame.KartSystems
         [Tooltip("Minimum (hiç şarj etmeden) zıplama kuvveti.")]
         public float minJumpForce = 0f;
         [Tooltip("Maksimum (tam şarjlı) zıplama kuvveti.")]
-        public float maxJumpForce = 20f;
+        public float maxJumpForce = 40f;
         [Tooltip("Şarjın maksimum seviyeye ulaşma hızı (Saniye).")]
-        public float chargeSpeed = 2.5f;
+        public float chargeSpeed = 4.5f;
 
         // Şarj durumunu takip eden dahili değişkenler
         private float m_CurrentJumpCharge = 0f;
@@ -286,6 +287,11 @@ namespace KartGame.KartSystems
 
         // Banana Peel params
         bool m_LastBananaPeelInput = false;
+        float m_BananaCooldownElapsedTime = 0.0f;
+
+        [Header("Banana Peel Cooldown")]
+        [Tooltip("Time in seconds before the kart can drop another banana peel.")]
+        public float BananaCooldown = 3f;
 
         public Transform nitroSpawnpoint;
 
@@ -306,6 +312,12 @@ namespace KartGame.KartSystems
         private Vector3 m_LastCheckpointPosition;
         private Quaternion m_LastCheckpointRotation;
         private bool m_HasCheckpoint = false;
+
+        // ============================================================================
+        // DEBUG - Log spam'i önlemek için throttle sayaçları
+        // ============================================================================
+        private float m_JumpLogTimer = 0f;
+        private const float JUMP_LOG_INTERVAL = 0.1f; // 10 frame'de bir log bas
 
         public void AddPowerup(StatPowerup statPowerup) => m_ActivePowerupList.Add(statPowerup);
         public void SetCanMove(bool move) => m_CanMove = move;
@@ -396,6 +408,9 @@ namespace KartGame.KartSystems
             Rigidbody = GetComponent<Rigidbody>();
             m_Inputs = GetComponents<IInput>();
 
+            // LOG: Kaç input kaynağı bulundu?
+            Debug.Log($"[JUMP-DEBUG] Awake: {m_Inputs.Length} adet IInput bileşeni bulundu.");
+
             if (vCam == null) vCam = GameObject.Find("CinemachineVirtualCamera").GetComponent<CinemachineVirtualCamera>();
             
             // Get reference to the Transposer component
@@ -453,17 +468,26 @@ namespace KartGame.KartSystems
 
         void Update()
         {
+            // ----------------------------------------------------------------
+            // FIX: Zıplama inputu Update()'te takip edilir — tuş geçişleri
+            // burada güvenilir biçimde yakalanır, FixedUpdate döngüsünde değil.
+            // ----------------------------------------------------------------
+            HandleJumpInput();
+
+            GatherInputs();
+
+            // Throttle sayacını ilerlet
+            m_JumpLogTimer += Time.deltaTime;
+
             // Handle nitro camera effects only when nitro is actually active (duration-based)
             if (IsNitroActive && nitroBar.GetComponent<MyHorizontalProgressBar>().GetProgress() > 0.0f)
             {
                 nitroUIValue -= Time.deltaTime * nitroDrainSpeed;
-                    nitroUIValue = Mathf.Clamp01(nitroUIValue);
+                nitroUIValue = Mathf.Clamp01(nitroUIValue);
+                nitroUI.SetProgress(nitroUIValue);
 
-                    nitroUI.SetProgress(nitroUIValue);
                 // FOV değerini yumuşakça artır
                 vCam.m_Lens.FieldOfView = Mathf.Lerp(vCam.m_Lens.FieldOfView, NitroFOV, Time.deltaTime * FOVTransitionSpeed);
-                
-                // transposer.m_FollowOffset = Vector3.Lerp(transposer.m_FollowOffset, NitroCameraOffset, Time.deltaTime * OffsetTransitionSpeed);
             }
             else // Nitro süresi bittiğinde
             {
@@ -476,8 +500,6 @@ namespace KartGame.KartSystems
                     m_IsDestroyingNitroVFX = true;
                     StartCoroutine(FadeOutAndDestroyVFX(NitroVFX, VFXFadeDuration));
                 }
-                // Offset değerini normale döndür
-                // transposer.m_FollowOffset = Vector3.Lerp(transposer.m_FollowOffset, NormalCameraOffset, Time.deltaTime * OffsetTransitionSpeed);
             }
         }
 
@@ -487,8 +509,6 @@ namespace KartGame.KartSystems
             UpdateSuspensionParams(FrontRightWheel);
             UpdateSuspensionParams(RearLeftWheel);
             UpdateSuspensionParams(RearRightWheel);
-
-            GatherInputs();
 
             // apply our powerups to create our finalStats
             TickPowerups();
@@ -537,7 +557,7 @@ namespace KartGame.KartSystems
                 // Giriş işlemleri
                 HandleNitroInput();
                 HandleBananaPeelInput();
-                HandleJumpInput();
+                // NOT: HandleJumpInput() buradan kaldırıldı — artık Update()'te çağrılıyor.
             }
         }
 
@@ -557,31 +577,51 @@ namespace KartGame.KartSystems
         /// </summary>
         private void HandleBananaPeelInput()
         {
-            if (Input.BananaPeel && !m_LastBananaPeelInput)
+            if (Input.BananaPeel && !m_LastBananaPeelInput && m_BananaCooldownElapsedTime >= BananaCooldown)
             {
                 DropBananaPeel();
+                m_BananaCooldownElapsedTime = 0.0f;
             }
             m_LastBananaPeelInput = Input.BananaPeel;
         }
 
         /// <summary>
-        /// Zıplama girdisini işler (şarj tabanlı)
-        /// Adımlar:
-        /// 1. Tuşa ilk basılışında şarjlamayı başlat
-        /// 2. Tuşa basılı tutulduğu sürece şarjı doldur
-        /// 3. Tuş bırakıldığında zıplamayı tetikle
+        /// Zıplama girdisini işler (şarj tabanlı).
+        /// Update()'te çağrılır — tuş geçişleri frame başına bir kez güvenilir biçimde yakalanır.
         /// </summary>
         private void HandleJumpInput()
         {
+            // Önce güncel ham input'u oku
+            bool jumpPressed = false;
+            for (int i = 0; i < m_Inputs.Length; i++)
+            {
+                var rawInput = m_Inputs[i].GenerateInput();
+                if (rawInput.Jump) { jumpPressed = true; break; }
+            }
+
+            // LOG: Şarj sırasında 0.1s'de bir durum raporu bas
+            if (m_IsChargingJump && m_JumpLogTimer >= JUMP_LOG_INTERVAL)
+            {
+                m_JumpLogTimer = 0f;
+                Debug.Log($"[JUMP-DEBUG] Şarj devam ediyor | " +
+                          $"jumpPressed={jumpPressed} | " +
+                          $"charge={m_CurrentJumpCharge:F2} | " +
+                          $"GroundPercent={GroundPercent:F2} | " +
+                          $"IsSpinning={IsSpinning} | " +
+                          $"m_CanMove={m_CanMove}");
+            }
+
             // 1. Tuşa ilk basılma: Şarjlamaya başla
-            if (Input.Jump && !m_LastJumpInput)
+            if (jumpPressed && !m_LastJumpInput)
             {
                 m_IsChargingJump = true;
                 m_CurrentJumpCharge = 0f;
+                // LOG: Şarj başladı
+                Debug.Log($"[JUMP-DEBUG] >>> Şarj BAŞLADI | GroundPercent={GroundPercent:F2} | IsSpinning={IsSpinning} | m_CanMove={m_CanMove}");
             }
 
             // 2. Tuşa basılı tutulduğu sürece: Şarjı doldur
-            if (Input.Jump && m_IsChargingJump)
+            if (jumpPressed && m_IsChargingJump)
             {
                 m_CurrentJumpCharge += Time.deltaTime * (1f / chargeSpeed);
                 m_CurrentJumpCharge = Mathf.Clamp01(m_CurrentJumpCharge);
@@ -591,13 +631,19 @@ namespace KartGame.KartSystems
             }
 
             // 3. Tuş bırakıldığı an: Zıplamayı tetikle
-            if (!Input.Jump && m_LastJumpInput && m_IsChargingJump)
+            if (!jumpPressed && m_LastJumpInput && m_IsChargingJump)
             {
+                // LOG: Tuş bırakıldı, ExecuteChargeJump çağrılıyor
+                Debug.Log($"[JUMP-DEBUG] >>> Tuş BIRAKILDI — ExecuteChargeJump çağrılıyor | " +
+                          $"charge={m_CurrentJumpCharge:F2} | " +
+                          $"GroundPercent={GroundPercent:F2} | " +
+                          $"IsSpinning={IsSpinning} | " +
+                          $"m_CanMove={m_CanMove}");
                 ExecuteChargeJump();
             }
 
             // Sonraki frame'de geçişi detect etmek için kaydet
-            m_LastJumpInput = Input.Jump;
+            m_LastJumpInput = jumpPressed;
         }
 
         void TickPowerups()
@@ -654,6 +700,11 @@ namespace KartGame.KartSystems
                 m_NitroCooldownElapsedTime += Time.fixedDeltaTime;
             }
 
+            if (m_BananaCooldownElapsedTime < BananaCooldown)
+            {
+                m_BananaCooldownElapsedTime += Time.fixedDeltaTime;
+            }
+
             // add powerups to our final stats
             m_FinalStats = baseStats + powerups;
 
@@ -695,6 +746,7 @@ namespace KartGame.KartSystems
                 return Input.Accelerate ? 1.0f : 0.0f;
             }
         }
+
         void OnTriggerEnter(Collider other)
         {
             // Checkpoint sistemi
@@ -710,19 +762,19 @@ namespace KartGame.KartSystems
             {
                 IsSpinning = true;
                 m_SpinElapsedTime = 0.0f;
-                m_SpinDuration = 1.0f; // Spin süresi (örneğin 2 saniye)
+                m_SpinDuration = 1.0f;
                 ApplySpinMovement();
                 Destroy(other.gameObject);
             }
-            if (other.CompareTag("NOS") && !other.gameObject.GetComponent<Nitro1Time>().isCollected)
+            if (other.CompareTag("NOS") && !other.gameObject.GetComponent<Nitro1Time>().isCollected && other.gameObject.transform.parent.gameObject.GetComponent<NitroBottle>() != null)
             {               
                 if (nitroUIValue < 1.0f)
                 {
                     nitroUIValue += 0.5f;
                 }
                 nitroUI.SetProgress(nitroUIValue); 
-                other.gameObject.GetComponent<Nitro1Time>().isCollected = true;                                     
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<Nitro1Time>().isCollected = true;     
+                other.gameObject.transform.parent.gameObject.GetComponent<NitroBottle>().temp();                                
             }
 
             if (other.gameObject.name == "FinishTrigger")
@@ -744,8 +796,8 @@ namespace KartGame.KartSystems
 
         void OnCollisionEnter(Collision collision)
         {
-              m_HasCollision = true;
-              if (collision.gameObject.CompareTag("Zemin"))
+            m_HasCollision = true;
+            if (collision.gameObject.CompareTag("Zemin"))
             {
                 // Eğer checkpoint kaydedilmişse ve yoldan düşmüşse checkpoint'e ışınla
                 if (m_HasCheckpoint)
@@ -779,8 +831,6 @@ namespace KartGame.KartSystems
                 if (Vector3.Dot(contact.normal, Vector3.up) > dot)
                     m_LastCollisionNormal = contact.normal;
             }
-
-            
         }
 
         void MoveVehicle(bool accelerate, bool brake, float turnInput)
@@ -927,7 +977,6 @@ namespace KartGame.KartSystems
                         IsDrifting = false;
                         m_CurrentGrip = m_FinalStats.Grip;
                     }
-
                 }
 
                 // Hız vektörünü döndürüp steer değerine göre rotasyon yap
@@ -998,6 +1047,7 @@ namespace KartGame.KartSystems
             m_IsDestroyingNitroVFX = false;
             Destroy(vfxObject);
         }
+
         /// <summary>
         /// Kartın arkasından havaya doğru muz kabuğu fırlatır.
         /// </summary>
@@ -1010,9 +1060,6 @@ namespace KartGame.KartSystems
                 
                 // Muzu anında o pozisyonda ve kartın o anki rotasyonuna paralel olarak doğur
                 GameObject bananaInstance = Instantiate(bananaPrefab, spawnPosition, transform.rotation);
-                
-                // Eğer sahnede ölçeklenme sorunu oluyorsa boyutunu eşitle (isteğe bağlı)
-               // bananaInstance.transform.localScale = Vector3.one * 1f;
             }
         }
 
@@ -1055,9 +1102,7 @@ namespace KartGame.KartSystems
             Quaternion deltaRotation = Quaternion.Euler(0f, rotationThisFrame, 0f);
             Rigidbody.MoveRotation(Rigidbody.rotation * deltaRotation);
         }
-        /// <summary>
-        /// Kart eğer yerdeyse dikey eksende yukarı doğru zıplamasını sağlar.
-        /// </summary>
+
         /// <summary>
         /// Biriken şarj miktarına göre kartı yukarı doğru fırlatır.
         /// </summary>
@@ -1065,12 +1110,22 @@ namespace KartGame.KartSystems
         {
             m_IsChargingJump = false;
 
-            // Kart hala yerdeyse zıpla (Şarj ederken havaya uçtuysa zıplamasın)
-            if (GroundPercent > 0.1f && !IsSpinning && m_CanMove)
-            {
-                // Min ve Max kuvvetler arasında şarj yüzdesine göre nihai kuvveti hesapla
-                float finalJumpForce = Mathf.Lerp(minJumpForce, maxJumpForce, m_CurrentJumpCharge);
+            float finalJumpForce = Mathf.Lerp(minJumpForce, maxJumpForce, m_CurrentJumpCharge);
 
+            // LOG: Zıplama koşullarının tam durumu
+            Debug.Log($"[JUMP-DEBUG] ExecuteChargeJump | " +
+                      $"GroundPercent={GroundPercent:F2} (gereken >0.25) | " +
+                      $"IsSpinning={IsSpinning} (gereken false) | " +
+                      $"m_CanMove={m_CanMove} (gereken true) | " +
+                      $"charge={m_CurrentJumpCharge:F2} | " +
+                      $"finalForce={finalJumpForce:F1} | " +
+                      $"FL_grounded={FrontLeftWheel.isGrounded} | " +
+                      $"FR_grounded={FrontRightWheel.isGrounded} | " +
+                      $"RL_grounded={RearLeftWheel.isGrounded} | " +
+                      $"RR_grounded={RearRightWheel.isGrounded}");
+
+            if (GroundPercent > 0.25f && !IsSpinning && m_CanMove)
+            {
                 // Dikey hızı sıfırla ki stabil fırlasın
                 Vector3 currentVel = Rigidbody.linearVelocity;
                 currentVel.y = 0f;
@@ -1079,13 +1134,23 @@ namespace KartGame.KartSystems
                 // Yukarı doğru fırlat
                 Rigidbody.AddForce(Vector3.up * finalJumpForce, ForceMode.Impulse);
                 Rigidbody.angularVelocity = new Vector3(0f, Rigidbody.angularVelocity.y, 0f);
+
+                // LOG: Kuvvet uygulandı
+                Debug.Log($"[JUMP-DEBUG] ✓ Zıplama kuvveti UYGULANIDI: {finalJumpForce:F1} N");
+            }
+            else
+            {
+                // LOG: Neden zıplamadı?
+                Debug.LogWarning($"[JUMP-DEBUG] ✗ Zıplama ENGELLENDI — " +
+                                 $"GroundPercent={GroundPercent:F2} (>0.25 gerekli) | " +
+                                 $"IsSpinning={IsSpinning} | " +
+                                 $"m_CanMove={m_CanMove}");
             }
 
-            // Süspansiyon görselini eski haline (normal yüksekliğe) sıfırla
+            // Süspansiyon görselini eski haline sıfırla
             WheelsPositionVerticalOffset = 0f;
             m_CurrentJumpCharge = 0f;
         }
     }  
     
 }
-
