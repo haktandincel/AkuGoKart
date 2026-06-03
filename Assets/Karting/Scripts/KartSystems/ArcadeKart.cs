@@ -807,6 +807,8 @@ namespace KartGame.KartSystems
             }
         }
 
+        
+
         IEnumerator TeleportToCheckpoint()
         {
             yield return new WaitForSeconds(0.5f);
