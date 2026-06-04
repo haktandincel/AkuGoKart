@@ -15,7 +15,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Zemin
   - Water
   - UI
   - P1_View
@@ -27,7 +27,7 @@ TagManager:
   - CrashObject
   - Kart
   - TrainingCheckpoints
-  - 
+  - FallDetector
   - 
   - 
   - 

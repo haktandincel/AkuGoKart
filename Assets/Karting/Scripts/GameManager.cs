@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "GirisScene")
         {
-            if (!isplayer1Won)
+            if (isplayer1Won)
             {
                 GameObject.Find("OncekiOyunOyuncu1").GetComponent<TMPro.TMP_Text>().text ="1. " + player1Name;
                 GameObject.Find("OncekiOyunOyuncu2").GetComponent<TMPro.TMP_Text>().text = "2. "+ player2Name;

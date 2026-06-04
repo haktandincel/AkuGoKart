@@ -746,9 +746,19 @@ namespace KartGame.KartSystems
                 return Input.Accelerate ? 1.0f : 0.0f;
             }
         }
+        
 
         void OnTriggerEnter(Collider other)
         {
+
+            if (other.CompareTag("Zemin"))
+    {
+        if (m_HasCheckpoint)
+        {
+
+            StartCoroutine(TeleportToCheckpoint());
+        }
+    }
             // Checkpoint sistemi
             if (other.CompareTag("Checkpoint"))
             {
@@ -797,29 +807,22 @@ namespace KartGame.KartSystems
         void OnCollisionEnter(Collision collision)
         {
             m_HasCollision = true;
-            if (collision.gameObject.CompareTag("Zemin"))
-            {
-                // Eğer checkpoint kaydedilmişse ve yoldan düşmüşse checkpoint'e ışınla
-                if (m_HasCheckpoint)
-                {
-                    StartCoroutine(TeleportToCheckpoint());
-                }
-            }
+           
         }
 
         
 
-        IEnumerator TeleportToCheckpoint()
-        {
-            yield return new WaitForSeconds(0.5f);
-            Rigidbody.linearVelocity = Vector3.zero;
-            Rigidbody.angularVelocity = Vector3.zero;
-            transform.position = m_LastCheckpointPosition;
-            transform.rotation = m_LastCheckpointRotation;
-            
-            Debug.Log("Araba checkpoint'e geri ışınlandı!");
-        }
-
+       IEnumerator TeleportToCheckpoint()
+{
+    yield return new WaitForSeconds(0.5f);
+    
+    transform.position = m_LastCheckpointPosition;
+    transform.rotation = m_LastCheckpointRotation;
+    
+  
+    
+    Debug.Log("Araba checkpoint'e geri ışınlandı!");
+}
         void OnCollisionExit(Collision collision) => m_HasCollision = false;
 
         void OnCollisionStay(Collision collision)
